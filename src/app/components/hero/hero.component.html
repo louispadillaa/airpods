@@ -1,0 +1,113 @@
+<section class="relative overflow-hidden pb-28 pt-40 lg:pt-48">
+  <!-- ambient backdrop glow -->
+  <div class="pointer-events-none absolute -top-40 right-[-10%] h-[560px] w-[560px] rounded-full bg-ripple/10 blur-[140px]"></div>
+  <div class="pointer-events-none absolute bottom-0 left-[-10%] h-[420px] w-[420px] rounded-full bg-dune/10 blur-[130px]"></div>
+
+  <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-2 lg:gap-12 lg:px-10">
+    <!-- copy column -->
+    <div>
+      <p
+        class="eyebrow opacity-0"
+        [class.animate-fade-up]="loaded"
+        style="animation-delay: 80ms"
+      >
+        Spatial Audio · Gen 2
+      </p>
+
+      <h1
+        class="mt-6 font-display text-[13vw] font-semibold leading-[0.95] tracking-tightest text-porcelain sm:text-6xl lg:text-7xl opacity-0"
+        [class.animate-fade-up]="loaded"
+        style="animation-delay: 180ms"
+      >
+        Sound,
+        <span class="block text-mist">unmuted.</span>
+      </h1>
+
+      <p
+        class="mt-7 max-w-md font-body text-base leading-relaxed text-mist opacity-0"
+        [class.animate-fade-up]="loaded"
+        style="animation-delay: 300ms"
+      >
+        Pulse Air reshapes what a wireless earbud can hear and hide. Adaptive noise
+        cancellation, a featherweight fit, and thirty hours of charge that disappears
+        into your day — not out of it.
+      </p>
+
+      <div
+        class="mt-10 flex flex-wrap items-center gap-4 opacity-0"
+        [class.animate-fade-up]="loaded"
+        style="animation-delay: 420ms"
+      >
+        <a href="#buy" class="btn-primary">
+          Pre-order — $199
+        </a>
+        <a href="#showcase" class="btn-ghost group">
+          See the colors
+          <span class="transition-transform duration-300 group-hover:translate-x-1">→</span>
+        </a>
+      </div>
+
+      <!-- stat row -->
+      <dl
+        class="mt-16 grid max-w-md grid-cols-3 gap-6 border-t border-line pt-8 opacity-0"
+        [class.animate-fade-up]="loaded"
+        style="animation-delay: 540ms"
+      >
+        <div *ngFor="let stat of stats">
+          <dt class="font-display text-2xl font-semibold text-porcelain">{{ stat.value }}</dt>
+          <dd class="mt-1 font-mono text-[11px] uppercase tracking-wide text-mist">{{ stat.label }}</dd>
+        </div>
+      </dl>
+    </div>
+
+    <!-- illustration column -->
+    <div class="relative flex items-center justify-center opacity-0" [class.animate-fade-in]="loaded" style="animation-delay: 260ms">
+      <!-- ripple rings, the page's signature motif -->
+      <div class="absolute h-[280px] w-[280px] rounded-full border border-ripple/40 animate-ripple1"></div>
+      <div class="absolute h-[280px] w-[280px] rounded-full border border-ripple/40 animate-ripple2"></div>
+      <div class="absolute h-[280px] w-[280px] rounded-full border border-ripple/40 animate-ripple3"></div>
+
+      <svg
+        viewBox="0 0 420 420"
+        class="relative z-10 w-full max-w-[420px] animate-float drop-shadow-[0_30px_60px_rgba(0,0,0,0.55)]"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <!-- case -->
+        <g>
+          <rect x="140" y="150" width="140" height="180" rx="38" fill="#1B1B1F" stroke="#2A2A2E" stroke-width="1.5" />
+          <rect x="140" y="150" width="140" height="10" rx="5" fill="#0B0B0D" />
+          <circle cx="210" cy="175" r="3.5" fill="#7DF9FF" opacity="0.9" />
+          <rect x="196" y="230" width="28" height="6" rx="3" fill="#3A3A3F" />
+        </g>
+
+        <!-- left earbud, floating out of case -->
+        <g class="origin-center animate-float-slow" style="animation-delay: .3s">
+          <rect x="96" y="90" width="34" height="60" rx="17" fill="#F5F5F7" />
+          <rect x="104" y="140" width="18" height="70" rx="9" fill="#E4E4E7" transform="rotate(8 113 175)" />
+        </g>
+
+        <!-- right earbud, floating out of case -->
+        <g class="origin-center animate-float-slow" style="animation-delay: .9s">
+          <rect x="290" y="90" width="34" height="60" rx="17" fill="#F5F5F7" />
+          <rect x="298" y="140" width="18" height="70" rx="9" fill="#E4E4E7" transform="rotate(-8 307 175)" />
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <!-- feature marquee -->
+  <div
+    class="relative mt-24 overflow-hidden border-y border-line py-5 opacity-0"
+    [class.animate-fade-in]="loaded"
+    style="animation-delay: .7s"
+  >
+    <div class="flex w-max animate-marquee gap-14">
+      <ng-container *ngFor="let group of [1, 2]">
+        <span *ngFor="let item of marquee" class="flex items-center gap-14 font-mono text-xs uppercase tracking-widest2 text-mist">
+          {{ item }}
+          <span class="h-1 w-1 rounded-full bg-ripple/70"></span>
+        </span>
+      </ng-container>
+    </div>
+  </div>
+</section>

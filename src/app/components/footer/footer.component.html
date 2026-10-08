@@ -1,0 +1,38 @@
+<footer class="border-t border-line bg-void">
+  <div class="mx-auto max-w-7xl px-6 py-16 lg:px-10">
+    <div class="grid grid-cols-2 gap-10 md:grid-cols-5">
+      <div class="col-span-2">
+        <a href="#hero" class="flex items-center gap-2.5">
+          <svg width="24" height="24" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="13" cy="13" r="12" stroke="#7DF9FF" stroke-width="1.2" opacity="0.5" />
+            <circle cx="13" cy="13" r="7.5" stroke="#F5F5F7" stroke-width="1.2" />
+            <circle cx="13" cy="13" r="2.4" fill="#F5F5F7" />
+          </svg>
+          <span class="font-display text-lg font-semibold text-porcelain">Pulse Air</span>
+        </a>
+        <p class="mt-4 max-w-xs text-sm leading-relaxed text-mist">
+          Wireless earbuds built around one idea: the room should sound the way you choose, not the way it happens to be.
+        </p>
+      </div>
+
+      <div *ngFor="let col of columns">
+        <h4 class="font-mono text-[11px] uppercase tracking-widest2 text-mist">{{ col.title }}</h4>
+        <ul class="mt-4 flex flex-col gap-3">
+          <li *ngFor="let link of col.links">
+            <a href="#" class="text-sm text-porcelain/80 transition-colors duration-300 hover:text-ripple">{{ link }}</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-16 flex flex-col items-center justify-between gap-4 border-t border-line pt-8 sm:flex-row">
+      <p class="font-mono text-[11px] uppercase tracking-wide text-mist">© {{ year }} Pulse Air — UI/UX practice build</p>
+      <div class="flex items-center gap-1.5">
+        <span class="h-1 w-1.5 rounded-full bg-ripple/70 animate-bar-pulse"></span>
+        <span class="h-1 w-1.5 rounded-full bg-ripple/70 animate-bar-pulse" style="animation-delay:.15s"></span>
+        <span class="h-1 w-1.5 rounded-full bg-ripple/70 animate-bar-pulse" style="animation-delay:.3s"></span>
+        <span class="h-1 w-1.5 rounded-full bg-ripple/70 animate-bar-pulse" style="animation-delay:.45s"></span>
+      </div>
+    </div>
+  </div>
+</footer>

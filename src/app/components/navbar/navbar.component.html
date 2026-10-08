@@ -1,0 +1,70 @@
+<header
+  class="fixed inset-x-0 top-0 z-50 transition-all duration-500"
+  [class.bg-void]="scrolled"
+  [class.bg-void]="scrolled"
+  [class.border-b]="scrolled"
+  [class.border-line]="scrolled"
+  [ngClass]="scrolled ? 'bg-void/80 backdrop-blur-xl border-b border-line' : 'bg-transparent'"
+>
+  <!-- scroll progress -->
+  <div class="absolute bottom-0 left-0 h-px bg-ripple transition-all duration-150" [style.width.%]="progress"></div>
+
+  <nav class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+    <a href="#hero" class="flex items-center gap-2.5">
+      <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="13" cy="13" r="12" stroke="#7DF9FF" stroke-width="1.2" opacity="0.5" />
+        <circle cx="13" cy="13" r="7.5" stroke="#F5F5F7" stroke-width="1.2" />
+        <circle cx="13" cy="13" r="2.4" fill="#F5F5F7" />
+      </svg>
+      <span class="font-display text-lg font-semibold tracking-tight text-porcelain">Pulse Air</span>
+    </a>
+
+    <ul class="hidden items-center gap-10 md:flex">
+      <li *ngFor="let link of links">
+        <a
+          [href]="link.href"
+          class="font-mono text-xs uppercase tracking-widest2 text-mist transition-colors duration-300 hover:text-porcelain"
+        >
+          {{ link.label }}
+        </a>
+      </li>
+    </ul>
+
+    <div class="hidden md:block">
+      <a href="#buy" class="btn-primary !px-6 !py-2.5 text-xs">Pre-order — $199</a>
+    </div>
+
+    <!-- mobile toggle -->
+    <button
+      type="button"
+      class="flex h-9 w-9 flex-col items-center justify-center gap-1.5 md:hidden"
+      (click)="toggleMenu()"
+      aria-label="Toggle menu"
+    >
+      <span class="h-px w-6 bg-porcelain transition-transform duration-300" [class.rotate-45]="menuOpen" [class.translate-y-[6.5px]]="menuOpen"></span>
+      <span class="h-px w-6 bg-porcelain transition-opacity duration-300" [class.opacity-0]="menuOpen"></span>
+      <span class="h-px w-6 bg-porcelain transition-transform duration-300" [class.-rotate-45]="menuOpen" [class.-translate-y-[6.5px]]="menuOpen"></span>
+    </button>
+  </nav>
+
+  <!-- mobile menu -->
+  <div
+    class="overflow-hidden bg-void/95 backdrop-blur-xl transition-all duration-500 md:hidden"
+    [style.maxHeight.px]="menuOpen ? 320 : 0"
+  >
+    <ul class="flex flex-col gap-1 px-6 pb-6">
+      <li *ngFor="let link of links">
+        <a
+          [href]="link.href"
+          (click)="closeMenu()"
+          class="block py-3 font-mono text-sm uppercase tracking-widest2 text-mist hover:text-porcelain"
+        >
+          {{ link.label }}
+        </a>
+      </li>
+      <li class="pt-2">
+        <a href="#buy" (click)="closeMenu()" class="btn-primary w-full text-xs">Pre-order — $199</a>
+      </li>
+    </ul>
+  </div>
+</header>

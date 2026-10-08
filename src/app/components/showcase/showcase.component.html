@@ -1,0 +1,76 @@
+<section class="relative overflow-hidden border-t border-line py-28">
+  <div class="mx-auto grid max-w-7xl grid-cols-1 items-center gap-16 px-6 lg:grid-cols-2 lg:gap-8 lg:px-10">
+    <!-- illustration -->
+    <div class="relative order-2 flex items-center justify-center lg:order-1" appReveal>
+      <div
+        class="absolute h-[320px] w-[320px] rounded-full blur-[100px] transition-colors duration-700"
+        [style.backgroundColor]="active.hex"
+        style="opacity: 0.18"
+      ></div>
+
+      <svg viewBox="0 0 300 300" class="relative z-10 w-full max-w-[320px]" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="150" cy="255" rx="70" ry="12" fill="black" opacity="0.35" />
+
+        <g class="animate-float">
+          <rect x="60" y="60" width="46" height="80" rx="23" [attr.fill]="active.hex" style="transition: fill 0.6s ease" />
+          <rect
+            x="72"
+            y="132"
+            width="24"
+            height="90"
+            rx="12"
+            [attr.fill]="active.hexSoft"
+            transform="rotate(6 84 177)"
+            style="transition: fill 0.6s ease"
+          />
+          <circle cx="83" cy="80" r="4" fill="#0B0B0D" opacity="0.25" />
+        </g>
+
+        <g class="animate-float-slow" style="animation-delay:.4s">
+          <rect x="196" y="60" width="46" height="80" rx="23" [attr.fill]="active.hex" style="transition: fill 0.6s ease" />
+          <rect
+            x="204"
+            y="132"
+            width="24"
+            height="90"
+            rx="12"
+            [attr.fill]="active.hexSoft"
+            transform="rotate(-6 216 177)"
+            style="transition: fill 0.6s ease"
+          />
+          <circle cx="219" cy="80" r="4" fill="#0B0B0D" opacity="0.25" />
+        </g>
+      </svg>
+    </div>
+
+    <!-- copy + swatches -->
+    <div class="order-1 lg:order-2" appReveal [revealDelay]="120">
+      <p class="eyebrow">Four finishes</p>
+      <h2 class="mt-4 font-display text-4xl font-semibold tracking-tightest text-porcelain sm:text-5xl">
+        Pick a mood, not just a color.
+      </h2>
+
+      <p class="mt-6 min-h-[3.5rem] max-w-md text-base leading-relaxed text-mist transition-opacity duration-500">
+        {{ active.copy }}
+      </p>
+
+      <div class="mt-10 flex items-center gap-4">
+        <button
+          *ngFor="let color of colorways; let i = index"
+          type="button"
+          (click)="select(i)"
+          class="group relative h-11 w-11 rounded-full border transition-all duration-300"
+          [class.border-porcelain]="activeIndex() === i"
+          [class.border-line]="activeIndex() !== i"
+          [class.scale-110]="activeIndex() === i"
+          [attr.aria-label]="color.name"
+          [attr.aria-pressed]="activeIndex() === i"
+        >
+          <span class="absolute inset-1 rounded-full" [style.backgroundColor]="color.hex"></span>
+        </button>
+      </div>
+
+      <p class="mt-5 font-mono text-xs uppercase tracking-widest2 text-mist">{{ active.name }}</p>
+    </div>
+  </div>
+</section>

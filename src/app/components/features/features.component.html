@@ -1,0 +1,47 @@
+<section class="relative border-t border-line bg-void-panel py-28">
+  <div class="mx-auto max-w-7xl px-6 lg:px-10">
+    <div class="max-w-xl" appReveal>
+      <p class="eyebrow">Engineered for quiet</p>
+      <h2 class="mt-4 font-display text-4xl font-semibold tracking-tightest text-porcelain sm:text-5xl">
+        Four ideas, one earbud.
+      </h2>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-4">
+      <article
+        *ngFor="let feature of features; let i = index"
+        appReveal
+        [revealDelay]="i * 120"
+        class="group relative flex flex-col justify-between bg-void px-7 py-10 transition-colors duration-500 hover:bg-void-raised"
+      >
+        <div>
+          <div class="flex h-11 w-11 items-center justify-center rounded-full border border-line text-ripple transition-colors duration-500 group-hover:border-ripple/60">
+            <ng-container [ngSwitch]="feature.icon">
+              <svg *ngSwitchCase="'wave'" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M2 12c2-6 4-6 6 0s4 6 6 0 4-6 6 0 4 6 2 0" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+              </svg>
+              <svg *ngSwitchCase="'battery'" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <rect x="2" y="7" width="17" height="10" rx="2.5" stroke="currentColor" stroke-width="1.6" />
+                <rect x="20.5" y="10" width="2" height="4" rx="1" fill="currentColor" />
+                <rect x="4.5" y="9.5" width="9" height="5" rx="1" fill="currentColor" opacity="0.7" />
+              </svg>
+              <svg *ngSwitchCase="'drop'" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2s7 8 7 13a7 7 0 1 1-14 0c0-5 7-13 7-13Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" />
+              </svg>
+              <svg *ngSwitchCase="'orbit'" width="20" height="20" viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="2.2" fill="currentColor" />
+                <ellipse cx="12" cy="12" rx="9.5" ry="4.2" stroke="currentColor" stroke-width="1.4" />
+                <ellipse cx="12" cy="12" rx="4.2" ry="9.5" stroke="currentColor" stroke-width="1.4" opacity="0.55" />
+              </svg>
+            </ng-container>
+          </div>
+
+          <h3 class="mt-8 font-display text-lg font-medium text-porcelain">{{ feature.title }}</h3>
+          <p class="mt-3 text-sm leading-relaxed text-mist">{{ feature.description }}</p>
+        </div>
+
+        <span class="mt-8 h-px w-8 bg-line transition-all duration-500 group-hover:w-14 group-hover:bg-ripple"></span>
+      </article>
+    </div>
+  </div>
+</section>
